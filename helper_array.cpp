@@ -19,12 +19,24 @@ void writeVector(vector <int> out) {
 	}
 }
 
-
-
-int main()
-{
-	vector <int> in;
-	readVector(in);
-	writeVector(in);
-	return 0;
+vector <int> intToVector(int number) {
+	vector <int> decomposition;
+	int secondNumber;
+	while (number > 0) {
+		secondNumber = number % 10;
+		number /= 10;
+		decomposition.push_back(secondNumber);
+	}
+	reverse(decomposition.begin(), decomposition.end());
+	return decomposition;
 }
+
+int sumVector(const vector <int>& in) {
+	int ans = 0;
+	for (int i = 0; i < in.size(); i++) {
+		ans += in[i];
+	}
+	return ans;
+}
+
+
